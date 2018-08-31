@@ -45,7 +45,7 @@ public class Cliente {
 		return this.nombre.get();
 	}//FIN METODO
 	
-	public StringProperty nombreroperty() {
+	public StringProperty nombreProperty() {
 		return this.nombre;
 	}//FIN METODO
 	//FIN METODOS "REFERENCIA"

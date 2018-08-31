@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Tecnico {
-	//PROPIEDADES
+	//PROPIEDADES								EN LA BASE DE DATOS LA TABLA SE LLAMA AGENTE
 	private ObjectProperty<Integer> sysPk; 		//Sys_PK (INT) | PrimaryKey
 	private StringProperty nombre; 				//Nombre (VARCHAR)
 	
@@ -44,13 +44,13 @@ public class Tecnico {
 		return this.nombre.get();
 	}//FIN METODO
 	
-	public StringProperty nombreroperty() {
+	public StringProperty nombreProperty() {
 		return this.nombre;
 	}//FIN METODO
 	//FIN METODOS "REFERENCIA"
 	
 	public String showInformacion() {
-		String informacionVenta = "DATOS DEL CLIENTE:\n Sys_PK: " + this.getSysPk() + "\n"
+		String informacionVenta = "DATOS DEL TÉCNICO:\n Sys_PK: " + this.getSysPk() + "\n"
 				+ "Nombre: " + this.getNombre();
 		return informacionVenta;
 	}//FIN METODO
