@@ -22,6 +22,7 @@ public class DetalleVenta {
 		this.sysPK = new SimpleObjectProperty<Integer>(sysPK);
 		this.cantidad = new SimpleObjectProperty<Double>(cantidad);
 		this.precio = new SimpleObjectProperty<Double>(precio);
+		this.producto = new SimpleObjectProperty<Producto>(producto);
 		this.venta = new SimpleObjectProperty<Venta>(venta);	
 	}//FIN CONSTRUCTOR
 
