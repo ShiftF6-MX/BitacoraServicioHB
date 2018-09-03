@@ -5,6 +5,6 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<BorderPane prefHeight="630.0" prefWidth="1120.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<BorderPane prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
 	<!-- TODO Add Nodes -->
 </BorderPane>
