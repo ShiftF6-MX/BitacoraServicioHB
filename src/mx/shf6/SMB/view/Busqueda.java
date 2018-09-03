@@ -1,12 +1,15 @@
 package mx.shf6.SMB.view;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -58,6 +61,14 @@ public class Busqueda {
 	public TextField buscarField;
 	@FXML
 	public Button buscarButton;
+	@FXML
+	public DatePicker fechaInicial;
+	@FXML
+	public DatePicker fechaFinal;
+	@FXML
+	public CheckBox remisionesCheck;
+	@FXML
+	public CheckBox facturasCheck;
 	
 	private ObservableList<DetalleVenta> detalleVentaData = FXCollections.observableArrayList();
 	
@@ -72,6 +83,8 @@ public class Busqueda {
         //INICIALIZA LAS COLUMNAS DEL TABLEVIEW
     	
         //SE AGREGAN DATOS A LAS CELDAS DESDE INFORMACION DE LA BASE DE DATOS
+    	fechaInicial.setValue(LocalDate.now());
+    	fechaFinal.setValue(LocalDate.now());
     	referenciaVentaColumn.setCellValueFactory(cellData -> cellData.getValue().referenciaProperty());
     	fechaVentaColumn.setCellValueFactory(cellData -> cellData.getValue().fechaProperty());
     	clienteColumn.setCellValueFactory(cellData -> cellData.getValue().getCliente().nombreProperty());    	
@@ -92,16 +105,27 @@ public class Busqueda {
     private void buscarVenta() {
     	tablaVenta.setItems(null);
         boolean okClicked = true;
+        int opcion=0;
         if (okClicked) {
             VentaDAO ventaDAO = new VentaDAO();
             ObservableList<Venta> ventaData = FXCollections.observableArrayList();
-    		ArrayList <Object> resultadoSelect = ventaDAO.leer(connectionDB.conectarMySQL(), "", buscarField.getText());           
+            if(remisionesCheck.isSelected()) {
+            	opcion=1;
+            }
+            if(facturasCheck.isSelected()) {
+            	opcion=2;
+            }
+            if(remisionesCheck.isSelected() && facturasCheck.isSelected()) {
+            	opcion=3;
+            }
+    		ArrayList <Object> resultadoSelect = ventaDAO.leer(connectionDB.conectarMySQL(), "", buscarField.getText(),fechaInicial.getValue().toString(), fechaFinal.getValue().toString(),opcion);           
         	for(Object venta :resultadoSelect) {
         		ventaData.add((Venta) venta);
         	}//FIN FOR
-        	tablaVenta.setItems(ventaData);        	
+        	tablaVenta.setItems(ventaData); 
         }//FIN IF
-    }//FIN METODO
+    }//FIN METODO    
+   
     	
     
     private void showDetalleVenta(Venta venta) {
