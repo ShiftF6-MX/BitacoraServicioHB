@@ -30,12 +30,12 @@ public class VentaDAO implements ObjectDAO {
 			//CONDICION SI SE SELECCIONA EL CHECKBOX DE REMISIONES
 			 if(opcion==1) {
 				 if(campoBusqueda.isEmpty() && valorBusqueda.isEmpty()) {
-					 query="SELECT Sys_PK, Referencia, Fecha, ICliente, IAgente, IRepartidor, "							+ "IPorteador, DomicilioEntrega, txtGuia, PComision, Notas "
+					 query="SELECT Sys_PK, Referencia, Fecha, ICliente, IAgente, IRepartidor, "							
+							 + "IPorteador, DomicilioEntrega, txtGuia, PComision, Notas "
 							+ "FROM venta "
 							+ "WHERE fecha BETWEEN '"+fechaInicial+"' AND '"+fechaFinal+"' "
 							+ "AND Documento= 3 "
 							+ "ORDER BY Fecha DESC";
-					 System.out.println(query);
 					 try {
 						 Statement statement = connection.createStatement();
 						 ResultSet resultSet = statement.executeQuery(query);
@@ -344,7 +344,6 @@ public class VentaDAO implements ObjectDAO {
 			//CONDICION SI SE SELECCIONA EL CHECKBOX DE FACTURAS Y REMISIONES
 			if(opcion==3) {				
 				if(campoBusqueda.isEmpty() && valorBusqueda.isEmpty()) {
-					System.out.println(opcion);
 					query="SELECT Sys_PK, Referencia, Fecha, ICliente, IAgente, IRepartidor, "
 							+ "IPorteador, DomicilioEntrega, txtGuia, PComision, Notas "
 							+ "FROM venta "
