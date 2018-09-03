@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="630.0" prefWidth="1120.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.shf6.SMB.view.Busqueda">
+   <children>
+      <Button fx:id="buscarButton" layoutX="364.0" layoutY="52.0" mnemonicParsing="false" onAction="#buscarVenta" text="Buscar" />
+      <TableView fx:id="tablaVenta" layoutX="40.0" layoutY="115.0" prefHeight="200.0" prefWidth="1047.0">
+        <columns>
+            <TableColumn fx:id="referenciaVentaColumn" prefWidth="97.0" text="Referencia" />
+            <TableColumn fx:id="fechaVentaColumn" prefWidth="97.0" text="Fecha" />
+            <TableColumn fx:id="clienteColumn" prefWidth="191.0" text="Cliente" />
+            <TableColumn fx:id="tecnicoColumn" prefWidth="108.0" text="Técnico" />
+            <TableColumn fx:id="marcaColumn" minWidth="0.0" prefWidth="76.0" text="Marca" />
+            <TableColumn fx:id="modeloColumn" text="Modelo" />
+          <TableColumn fx:id="numeroSerieColumn" prefWidth="90.0" text="# Serie" />
+          <TableColumn fx:id="placaColumn" prefWidth="76.0" text="Placa" />
+            <TableColumn fx:id="kilometrajeColumn" prefWidth="89.0" text="Kilometraje" />
+            <TableColumn fx:id="notasVentaColumn" prefWidth="142.0" text="Notas" />
+        </columns>
+      </TableView>
+      <TextField fx:id="buscarField" layoutX="40.0" layoutY="52.0" prefHeight="25.0" prefWidth="253.0" />
+      <TableView fx:id="tablaDetalleVenta" layoutX="40.0" layoutY="385.0" prefHeight="200.0" prefWidth="636.0">
+        <columns>
+          <TableColumn fx:id="codigoColumn" prefWidth="98.0" text="Codigo" />
+          <TableColumn fx:id="servicioProductoColumn" prefWidth="301.0" text="Servicio/Producto" />
+            <TableColumn fx:id="costoColumn" prefWidth="85.0" text="Costo" />
+            <TableColumn fx:id="notasDetalleVentaColumn" prefWidth="151.0" text="Notas" />
+        </columns>
+      </TableView>
+      <Label layoutX="40.0" layoutY="357.0" text="Detalle compra" />
+   </children>
+</AnchorPane>
