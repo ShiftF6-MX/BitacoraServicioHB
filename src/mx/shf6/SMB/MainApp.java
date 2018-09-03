@@ -44,7 +44,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Gestor Usuarios");
+        this.primaryStage.setTitle("Maxicomercio Tools | Bitácora de Servicios by Shift F6");
         initRootLayout();
         showBusqueda();
     }
